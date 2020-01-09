@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <TextView
+            android:id="@+id/card_title"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:text="@string/welcome_hiren"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+    <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="100dp"
+            android:layout_height="match_parent">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        >
+
+
+            <TextView
+                    android:id="@+id/txtMyMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_message"
+                    android:textColor="@color/white"
+                    android:textAppearance="@android:style/TextAppearance.Large"
+                    android:background="@color/colorPrimaryDark"
+                    android:padding="16dp"/>
+
+            <LinearLayout
+                    android:id="@+id/parentMyAccounts"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/txtMyMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:id="@+id/txtMyAccounts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@android:style/TextAppearance.Large"
+                        android:text="@string/my_accounts"
+                        android:textColor="@color/white"
+                        android:background="@color/colorAccent"
+                        android:padding="16dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>
