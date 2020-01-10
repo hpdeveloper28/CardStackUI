@@ -1,68 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/accountSummaryParentView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <TextView
-            android:id="@+id/card_title"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:padding="16dp"
-            android:gravity="center_vertical"
-            android:text="@string/welcome_hiren"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="24sp"
-            android:textStyle="bold"/>
-
-    <androidx.core.widget.NestedScrollView
-            android:id="@+id/nestedScrollView"
-            android:layout_width="match_parent"
-            android:clipToPadding="false"
-            android:paddingTop="100dp"
             android:layout_height="match_parent">
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
-        >
 
+        <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/summaryAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="com.myaccountanimation.recyclerviewdemo.FixedAppBarLayoutBehavior">
 
-            <TextView
-                    android:id="@+id/txtMyMessage"
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/main.collapsing"
+                    app:collapsedTitleGravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/my_message"
-                    android:textColor="@color/white"
-                    android:textAppearance="@android:style/TextAppearance.Large"
-                    android:background="@color/colorPrimaryDark"
-                    android:padding="16dp"/>
-
-            <LinearLayout
-                    android:id="@+id/parentMyAccounts"
-                    android:orientation="vertical"
-                    android:layout_below="@+id/txtMyMessage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
                 <TextView
-                        android:id="@+id/txtMyAccounts"
+                        android:id="@+id/card_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:padding="16dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/welcome_hiren"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        app:layout_collapseMode="parallax"
+                        app:layout_collapseParallaxMultiplier="1.0"
+                        android:textStyle="bold"/>
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
+                android:layout_width="match_parent"
+                android:clipToPadding="false"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_height="match_parent">
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+            >
+
+                <TextView
+                        android:id="@+id/txtMyMessage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@android:style/TextAppearance.Large"
-                        android:text="@string/my_accounts"
+                        android:text="@string/my_message"
                         android:textColor="@color/white"
-                        android:background="@color/colorAccent"
+                        android:textAppearance="@android:style/TextAppearance.Large"
+                        android:background="@color/colorPrimaryDark"
                         android:padding="16dp"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerView"
+                <LinearLayout
+                        android:id="@+id/parentMyAccounts"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/txtMyMessage"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                </androidx.recyclerview.widget.RecyclerView>
-            </LinearLayout>
+                    <TextView
+                            android:id="@+id/txtMyAccounts"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@android:style/TextAppearance.Large"
+                            android:text="@string/my_accounts"
+                            android:textColor="@color/white"
+                            android:background="@color/colorAccent"
+                            android:padding="16dp"/>
 
-        </RelativeLayout>
-    </androidx.core.widget.NestedScrollView>
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-</FrameLayout>
+                    </androidx.recyclerview.widget.RecyclerView>
+                </LinearLayout>
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>
