@@ -23,7 +23,7 @@
             android:clipToPadding="false"
             android:paddingTop="100dp"
             android:layout_height="match_parent">
-        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
         >
 
 
@@ -42,7 +42,7 @@
                     android:orientation="vertical"
                     android:layout_below="@+id/txtMyMessage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                 <TextView
                         android:id="@+id/txtMyAccounts"
@@ -57,7 +57,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="match_parent">
 
                 </androidx.recyclerview.widget.RecyclerView>
             </LinearLayout>
