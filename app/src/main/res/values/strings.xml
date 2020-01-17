@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RecyclerViewDemo</string>
+    <string name="app_name">Card Stack UI</string>
     <string name="my_message">My Message</string>
     <string name="my_accounts">My Accounts</string>
     <string name="welcome_hiren">Welcome Hiren</string>
