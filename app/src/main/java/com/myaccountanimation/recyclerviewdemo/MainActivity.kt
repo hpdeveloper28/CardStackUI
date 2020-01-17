@@ -1,28 +1,24 @@
 package com.myaccountanimation.recyclerviewdemo
-
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
-import android.graphics.Point
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.view.animation.DecelerateInterpolator
-import androidx.core.graphics.minus
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.ArrayList
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    private val text1 = "welcome back"
+    private val text2 = "mr hiren patel"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        textLayoutFirst.setAnimatedText(this, text1)
+        textLayoutSecond.setAnimatedText(this, text2, 200)
 
         val data = ArrayList<String>()
         data.add("1")
@@ -41,17 +37,20 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = recyclerAdapter
 
 
-        val animation: Animation = AnimationUtils.loadAnimation(
+        val animMyMessageView: Animation = AnimationUtils.loadAnimation(
             this@MainActivity,
             R.anim.bottom_to_original
         )
-        val animation1: Animation = AnimationUtils.loadAnimation(
+        animMyMessageView.startOffset = 500
+
+        val animMyAccount: Animation = AnimationUtils.loadAnimation(
             this@MainActivity,
             R.anim.bottom_to_original_one
         )
+        animMyAccount.startOffset = 500
 
-        parentMyAccounts.animation = animation
-        txtMyMessage.animation = animation1
+        parentMyAccounts.animation = animMyMessageView
+        txtMyMessage.animation = animMyAccount
 
     }
 }
